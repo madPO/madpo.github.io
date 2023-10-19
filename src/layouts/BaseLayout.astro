@@ -1,0 +1,16 @@
+---
+import "../app/global.css";
+const { title } = Astro.props;
+---
+
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | madpo.me</title>
+  </head>
+  <body class="font-[Martian_Grotesk] bg-[#2d2d2d]">
+    <slot />
+  </body>
+</html>

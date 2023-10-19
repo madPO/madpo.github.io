@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Picture } from "astro:assets";
+import avatar from "../../public/avatars/avatar.png";
+---
+
+<BaseLayout title="Семён Зорькин">
+  <div class="min-h-screen flex items-center px-6">
+    <div class="relative border-10 border-gray-200 sm:w-[540px] mx-auto" style="z-index: 1;">
+      <Picture
+        class="mx-auto"
+        widths={[540, 720, avatar.width]}
+        sizes={`(max-width: 600px) 540px, (max-width: 1600px) 720px, ${avatar.width}px`}
+        src={avatar}
+        alt="Зорькин Семён"
+        formats={["webp", "png", "jpeg"]}
+      />
+      <div class="absolute bottom-0 left-0 w-full h-[20%] bg-blue-950 flex items-center px-2"><h1 class="text-white text-4xl font-bold">Семён Зорькин</h1></div>  
+    </div>
+  </div>
+</BaseLayout>

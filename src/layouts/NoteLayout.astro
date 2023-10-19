@@ -1,0 +1,12 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+import "../app/note.css";
+const { title } = Astro.props.frontmatter;
+---
+
+<BaseLayout title={title}>
+  <article class="note-layout">
+    <slot />
+  </article>
+</BaseLayout>
