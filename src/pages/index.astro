@@ -5,7 +5,7 @@ import avatar from "../../public/avatars/avatar.png";
 ---
 
 <BaseLayout title="Семён Зорькин">
-  <div class="min-h-screen flex items-center justify-center p-6 lg:p-0">
+  <main class="min-h-screen flex items-center justify-center p-6 lg:p-0">
     <div
       class="flex gap-2 flex-col lg:flex-row"
     >
@@ -17,10 +17,11 @@ import avatar from "../../public/avatars/avatar.png";
         alt="Зорькин Семён"
         formats={["webp", "png", "jpeg"]}
         height={540}
+        fetchpriority="high"
       />
       <div class="flex items-center px-2">
         <h1 class="text-white text-4xl font-bold">Семён Зорькин</h1>
       </div>
     </div>
-  </div>
+  </main>
 </BaseLayout>

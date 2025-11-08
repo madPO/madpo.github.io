@@ -1,6 +1,7 @@
 ---
 layout: ../../layouts/NoteLayout.astro
 title: Установка CoreOS на Raspberrypi 4
+description: Заметка о том, как установить CoreOS на Raspberry Pi 4
 ---
 
 # Как установить CoreOS на Raspberry pi 4
