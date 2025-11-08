@@ -5,17 +5,22 @@ import avatar from "../../public/avatars/avatar.png";
 ---
 
 <BaseLayout title="Семён Зорькин">
-  <div class="min-h-screen flex items-center px-6">
-    <div class="relative border-10 border-gray-200 sm:w-[540px] mx-auto" style="z-index: 1;">
+  <div class="min-h-screen flex items-center justify-center p-6 lg:p-0">
+    <div
+      class="flex gap-2 flex-col lg:flex-row"
+    >
       <Picture
-        class="mx-auto"
-        widths={[540, 720, avatar.width]}
-        sizes={`(max-width: 600px) 540px, (max-width: 1600px) 720px, ${avatar.width}px`}
+        class="border-10 border-gray-200"
+        widths={[540]}
+        sizes={`(max-width: 600px) 540px`}
         src={avatar}
         alt="Зорькин Семён"
         formats={["webp", "png", "jpeg"]}
+        height={540}
       />
-      <div class="absolute bottom-0 left-0 w-full h-[20%] bg-blue-950 flex items-center px-2"><h1 class="text-white text-4xl font-bold">Семён Зорькин</h1></div>  
+      <div class="flex items-center px-2">
+        <h1 class="text-white text-4xl font-bold">Семён Зорькин</h1>
+      </div>
     </div>
   </div>
 </BaseLayout>
