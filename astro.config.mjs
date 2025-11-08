@@ -7,5 +7,10 @@ export default defineConfig({
   site: "https://madpo.github.io",
   vite: {
     plugins: [tailwindcss()]
-  }
+  },
+  markdown: {
+    shikiConfig: {
+      theme: "github-dark-default",
+    },
+  },
 });
