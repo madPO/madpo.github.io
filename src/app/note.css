@@ -28,3 +28,11 @@ a:hover {
 .astro-code {
    @apply p-7;
 }
+
+ul {
+   @apply px-7;
+}
+
+li {
+   @apply list-disc m-2;
+}
