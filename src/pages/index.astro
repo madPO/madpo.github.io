@@ -5,23 +5,64 @@ import avatar from "../../public/avatars/avatar.png";
 ---
 
 <BaseLayout title="Семён Зорькин">
-  <main class="min-h-screen flex items-center justify-center p-6 lg:p-0">
-    <div
-      class="flex gap-2 flex-col lg:flex-row"
-    >
-      <Picture
-        class="border-10 border-gray-200"
-        widths={[540]}
-        sizes={`(max-width: 600px) 540px`}
-        src={avatar}
-        alt="Зорькин Семён"
-        formats={["webp", "png", "jpeg"]}
-        height={540}
-        fetchpriority="high"
-      />
-      <div class="flex items-center px-2">
-        <h1 class="text-white text-4xl font-bold">Семён Зорькин</h1>
-      </div>
-    </div>
-  </main>
+    <main class="main-container">
+        <div class="image-text-container">
+            <Picture
+                class="avatar-image"
+                widths={[540]}
+                sizes={`(max-width: 600px) 540px`}
+                src={avatar}
+                alt="Зорькин Семён"
+                formats={["webp", "png", "jpeg"]}
+                height={540}
+                fetchpriority="high"
+                loading="eager"
+            />
+            <div class="text-container">
+                <h1 class="name-text">Семён Зорькин</h1>
+            </div>
+        </div>
+    </main>
 </BaseLayout>
+
+<style lang="postcss">
+  .main-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+
+    @media (min-width: 1024px) {
+      padding: 0;
+    }
+
+    .image-text-container {
+      display: flex;
+      gap: 0.5rem;
+      flex-direction: column;
+
+      @media (min-width: 1024px) {
+        flex-direction: row;
+      }
+
+      .avatar-image {
+        border-width: 10px;
+        border-color: oklch(0.9276 0.0058 264.53);
+        border-style: solid;
+      }
+
+      .text-container {
+        display: flex;
+        align-items: center;
+        padding-left: 0.5rem;
+
+        .name-text {
+          color: white;
+          font-size: 2rem;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+</style>

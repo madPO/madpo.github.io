@@ -1,51 +1,89 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 
-const { title, description } = Astro.props.frontmatter;
+const { title, description, tags } = Astro.props.frontmatter;
 ---
-<link rel="preload" href="/fonts/MartianMonoVF.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
-<style is:global>
-  @reference "tailwindcss";
 
-  .note-layout {
-    @apply text-base py-6 px-4 text-[#E5E6E5] w-screen lg:w-[75vw] mx-auto;
-  }
+<link
+    rel="preload"
+    href="/fonts/MartianMonoVF.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin="anonymous"
+/>
+<style is:global lang="postcss">
+    @font-face {
+        font-family: Martian Mono;
+        font-display: swap;
+        src: url("/fonts/MartianMonoVF.woff2") format("woff2");
+        font-weight: 100 800;
+        font-stretch: 75% 112.5%;
+    }
 
-  p {
-    @apply my-2;
-  }
+    .note-layout {
+        font-size: 1rem;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        color: oklch(0.9239 0.0017 145.56);
+        width: 100vw;
+        max-width: 75vw;
+        margin-left: auto;
+        margin-right: auto;
 
-  h1 {
-    @apply text-5xl font-bold my-4;
-  }
+        p {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
 
-  h2 {
-    @apply text-4xl font-bold my-3 border-b-2 border-zinc-200 pb-1;
-  }
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
 
-  a {
-    @apply underline;
-    text-decoration-color: #F6C90E;
-  }
+        h2 {
+            font-size: 2.25rem;
+            font-weight: bold;
+            margin-top: 0.75rem;
+            margin-bottom: 0.75rem;
+            border-width: 0;
+            border-bottom-width: 2px;
+            border-bottom-color: oklch(0.869 0.0198 252.89);
+            padding-bottom: 0.25rem;
+            border-style: solid;
+        }
 
-  a:hover {
-    @apply underline text-[#F6C90E];
-  }
+        a {
+            text-decoration: underline;
+            text-decoration-color: oklch(0.8506 0.1723 92.22);
 
-  .astro-code {
-    @apply p-7;
-  }
+            &:hover,
+            &:visited {
+                text-decoration: underline;
+                color: oklch(0.8506 0.1723 92.22);
+            }
+        }
 
-  ul {
-    @apply px-7;
-  }
+        .astro-code {
+            padding: 1.75rem;
+            font-family: Martian Mono;
+        }
 
-  li {
-    @apply list-disc m-2;
-  }
+        ul {
+            padding-left: 1.75rem;
+        }
+
+        li {
+            list-style-type: disc;
+            margin: 0.5rem;
+        }
+    }
 </style>
-<BaseLayout title={title} description={description}>
-  <main class="note-layout">
-    <slot />
-  </main>
+<BaseLayout title={title} description={description} tags={tags}>
+    <main class="note-layout">
+        <slot />
+    </main>
 </BaseLayout>

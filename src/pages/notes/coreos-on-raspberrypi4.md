@@ -2,6 +2,7 @@
 layout: ../../layouts/NoteLayout.astro
 title: Установка CoreOS на Raspberry Pi 4
 description: Заметка о том, как установить CoreOS на Raspberry Pi 4
+tags: ["coreos", "raspberry-pi", "linux", "fedora", "embedded-systems", "server-setup", "wsl", "installation-guide"]
 ---
 
 # Как установить CoreOS на Raspberry Pi 4

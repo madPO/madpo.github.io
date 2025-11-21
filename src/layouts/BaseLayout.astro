@@ -1,5 +1,6 @@
 ---
 const { title, description, tags } = Astro.props;
+const sitePath = Astro.site;
 ---
 
 <html lang="ru">
@@ -30,15 +31,9 @@ const { title, description, tags } = Astro.props;
             type="font/woff2"
             crossorigin="anonymous"
         />
-        <title>{title} | madpo.me</title>
-        <style is:global>
-            @import "tailwindcss";
+        <title>{title} | {sitePath}</title>
+        <style is:global lang="postcss">
             @import-sanitize;
-
-            @theme {
-                --font-sans: "Martian Grotesk", sans-serif;
-                --font-mono: "Martian Mono", monospace;
-            }
 
             @font-face {
                 font-family: Martian Grotesk;
@@ -48,12 +43,8 @@ const { title, description, tags } = Astro.props;
                 font-stretch: 75% 200%; /* Cn: 75%,  Nr: 87.5%,  Std: 100%,  sWd: 112.5%,  Wd: 125%,  xWd: 150%,  uWd: 200% */
             }
 
-            @font-face {
-                font-family: Martian Mono;
-                font-display: swap;
-                src: url("/fonts/MartianMonoVF.woff2") format("woff2");
-                font-weight: 100 800; /* Th: 100, xLt: 200, Lt: 300, Rg: 400, Md: 500, (no 600), Bd: 700, xBd: 800 */
-                font-stretch: 75% 112.5%; /* Cn: 75%,  Nr: 87.5%,  Std: 100%,  sWd: 112.5% */
+            :root {
+                font-family: Martian Grotesk;
             }
         </style>
     </head>
@@ -63,8 +54,8 @@ const { title, description, tags } = Astro.props;
     </body>
 </html>
 
-<style>
+<style lang="postcss">
     .body-container {
-        background-color: #070c08;
+        background-color: oklch(0.1468 0.0123 151.42);
     }
 </style>
