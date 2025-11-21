@@ -9,14 +9,13 @@ import avatar from "../../public/avatars/avatar.png";
         <div class="image-text-container">
             <Picture
                 class="avatar-image"
-                widths={[540]}
-                sizes={`(max-width: 600px) 540px`}
                 src={avatar}
                 alt="Зорькин Семён"
                 formats={["webp", "png", "jpeg"]}
-                height={540}
                 fetchpriority="high"
                 loading="eager"
+                layout="constrained"
+                decoding="async"
             />
             <div class="text-container">
                 <h1 class="name-text">Семён Зорькин</h1>
