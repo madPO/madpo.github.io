@@ -1,43 +1,70 @@
 ---
-const { title, description } = Astro.props;
+const { title, description, tags } = Astro.props;
 ---
 
 <html lang="ru">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="google-site-verification" content="5wXjxl9s4gjP666Yjn_jHV9cofg_CqkyHdtprmCpwaM" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description ? description : 'Персональная страница Семёна Зорькина'} />
-    <link rel="preload" href="/fonts/MartianGrotesk-VFVF.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
-    <title>{title} | madpo.me</title>
-  </head>
-  <style is:global>
-    @import "tailwindcss";
-    @import-sanitize;
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="google-site-verification"
+            content="5wXjxl9s4gjP666Yjn_jHV9cofg_CqkyHdtprmCpwaM"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content={Astro.generator} />
+        <meta name="author" content="Семён Зорькин" />
+        <meta
+            name="description"
+            content={description
+                ? description
+                : "Персональная страница Семёна Зорькина. Разработчик, инженер, автор."}
+        />
+        <meta name="robots" content="index, follow" />
+        <meta
+            name="keywords"
+            content={"Семён Зорькин, разработчик, инженер, projects" + tags}
+        />
+        <link
+            rel="preload"
+            href="/fonts/MartianGrotesk-VFVF.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin="anonymous"
+        />
+        <title>{title} | madpo.me</title>
+        <style is:global>
+            @import "tailwindcss";
+            @import-sanitize;
 
-    @theme {
-        --font-sans: "Martian Grotesk", sans-serif;
-        --font-mono: "Martian Mono", monospace;
-    }
+            @theme {
+                --font-sans: "Martian Grotesk", sans-serif;
+                --font-mono: "Martian Mono", monospace;
+            }
 
-    @font-face {
-      font-family: Martian Grotesk;
-      font-display: swap;
-      src: url('/fonts/MartianGrotesk-VFVF.woff2') format('woff2');
-      font-weight: 100 1000; /* Th: 100, xLt: 200, Lt: 300, Rg: 400, Md: 500, (no 600), Bd: 700, xBd: 800, Bl: 900, Ult: 1000 */
-      font-stretch: 75% 200%; /* Cn: 75%,  Nr: 87.5%,  Std: 100%,  sWd: 112.5%,  Wd: 125%,  xWd: 150%,  uWd: 200% */
-    }
+            @font-face {
+                font-family: Martian Grotesk;
+                font-display: swap;
+                src: url("/fonts/MartianGrotesk-VFVF.woff2") format("woff2");
+                font-weight: 100 1000; /* Th: 100, xLt: 200, Lt: 300, Rg: 400, Md: 500, (no 600), Bd: 700, xBd: 800, Bl: 900, Ult: 1000 */
+                font-stretch: 75% 200%; /* Cn: 75%,  Nr: 87.5%,  Std: 100%,  sWd: 112.5%,  Wd: 125%,  xWd: 150%,  uWd: 200% */
+            }
 
-    @font-face {
-      font-family: Martian Mono;
-      font-display: swap;
-      src: url('/fonts/MartianMonoVF.woff2') format('woff2');
-      font-weight: 100 800; /* Th: 100, xLt: 200, Lt: 300, Rg: 400, Md: 500, (no 600), Bd: 700, xBd: 800 */
-      font-stretch: 75% 112.5%; /* Cn: 75%,  Nr: 87.5%,  Std: 100%,  sWd: 112.5% */
-    }
-  </style>
-  <body class="bg-[#070C08]">
-    <slot />
-  </body>
+            @font-face {
+                font-family: Martian Mono;
+                font-display: swap;
+                src: url("/fonts/MartianMonoVF.woff2") format("woff2");
+                font-weight: 100 800; /* Th: 100, xLt: 200, Lt: 300, Rg: 400, Md: 500, (no 600), Bd: 700, xBd: 800 */
+                font-stretch: 75% 112.5%; /* Cn: 75%,  Nr: 87.5%,  Std: 100%,  sWd: 112.5% */
+            }
+        </style>
+    </head>
+
+    <body class="body-container">
+        <slot />
+    </body>
 </html>
+
+<style>
+    .body-container {
+        background-color: #070c08;
+    }
+</style>
