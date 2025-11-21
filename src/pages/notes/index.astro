@@ -1,0 +1,164 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const notes = (await getCollection("notes")).sort((a, b) => {
+    return b.data.published.valueOf() - a.data.published.valueOf();
+});
+---
+
+<BaseLayout title="Заметки" tags="список, заметок">
+    <div class="notes-container">
+        {
+            notes.map((note) => (
+                <div class="note-item">
+                    <a href={"/notes/" + note.id} class="focus:outline-hidden">
+                        <div class="mt-8">
+                            <h3 class="note-title">
+                                <span
+                                    aria-hidden="true"
+                                    class="absolute inset-0"
+                                />
+                                {note.data.title}
+                            </h3>
+                            <p class="note-description">
+                                {note.data.description}
+                            </p>
+                        </div>
+                        <span aria-hidden="true" class="arrow-icon">
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                class="icon-size"
+                            >
+                                <path d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z" />
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            ))
+        }
+    </div>
+</BaseLayout>
+
+<style>
+    .notes-container {
+        --tw-divide-y-reverse: 0;
+        divide-y: calc(1px * (1 - var(--tw-divide-y-reverse))) solid
+            rgba(229, 231, 235, 1);
+        overflow: hidden;
+        border-radius: 0.5rem;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        --tw-sm-divide-y-reverse: 0;
+        border-bottom-width: 0px;
+        box-shadow: none;
+        outline-width: 2px;
+        outline-offset: calc(var(--tw-outline-offset) * -1);
+        outline-color: rgba(243, 244, 246, 0.1);
+        padding: 2rem;
+    }
+
+    @media (min-width: 640px) {
+        .notes-container {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            --tw-divide-y-reverse: 0;
+            border-bottom-width: 0px;
+        }
+    }
+
+    .notes-container.dark .note-item {
+        border-color: rgba(243, 244, 246, 0.1);
+    }
+
+    .note-item {
+        position: relative;
+        padding: 1.5rem;
+        outline-width: 2px;
+        outline-offset: -2px;
+        border-top-left-radius: 0.5rem;
+        border-top-right-radius: 0.5rem;
+        border-color: rgba(243, 244, 246, 0.1);
+        border-width: 2px;
+        border-style: solid;
+        outline-color: rgba(129, 140, 248, 1);
+
+        a {
+            text-decoration: none;
+        }
+
+        .note-title {
+            text-decoration: underline;
+            text-decoration-color: oklch(0.8506 0.1723 92.22);
+            color: oklch(0.9239 0.0017 145.56);
+
+            &:hover {
+                text-decoration: underline;
+                color: oklch(0.8506 0.1723 92.22);
+            }
+        }
+    }
+
+    /*.note-item:nth-of-type(odd):not(:nth-last-child(2)) {
+        border-bottom-width: 1px;
+    }
+
+    .note-item:nth-of-type(even) {
+        border-left-width: 1px;
+    }
+
+    .note-item:nth-of-type(even):not(:last-child) {
+        border-bottom-width: 1px;
+    }
+
+    @media (min-width: 640px) {
+        .note-item:nth-of-type(odd):not(:nth-last-child(2)) {
+            border-bottom-width: 0px;
+        }
+
+        .note-item:nth-of-type(even) {
+            border-left-width: 1px;
+        }
+
+        .note-item:nth-of-type(even):not(:last-child) {
+            border-bottom-width: 0px;
+        }
+        } */
+
+    .note-item .icon-container {
+        display: inline-flex;
+        border-radius: 0.5rem;
+        padding: 0.75rem;
+        background-color: rgba(179, 255, 232, 0.08);
+        color: rgba(120, 214, 228, 1);
+    }
+
+    .note-item .note-title {
+        font-size: 1rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 1);
+    }
+
+    .note-item .note-description {
+        margin-top: 0.5rem;
+        font-size: 0.875rem;
+        color: rgba(156, 163, 175, 1);
+    }
+
+    .note-item .arrow-icon {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        color: rgba(156, 163, 175, 1);
+    }
+
+    .note-item:hover .arrow-icon {
+        color: rgba(243, 244, 246, 0.8);
+    }
+
+    .icon-size {
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+</style>

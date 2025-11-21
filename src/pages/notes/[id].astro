@@ -1,0 +1,19 @@
+---
+import { getCollection, render } from "astro:content";
+import NoteLayout from "../../layouts/NoteLayout.astro";
+
+export async function getStaticPaths() {
+    const notes = await getCollection("notes");
+    return notes.map((note) => ({
+        params: { id: note.id },
+        props: { note },
+    }));
+}
+// 2. For your template, you can get the entry directly from the prop
+const { note } = Astro.props;
+const { Content } = await render(note);
+---
+
+<NoteLayout {...note.data}>
+    <Content />
+</NoteLayout>
