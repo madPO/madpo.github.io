@@ -5,7 +5,7 @@ const emailAction = btoa('mailto:job@madpo.me');
 ---
 
 <BaseLayout title="Контакты" canonical="contact">
-    <main class="main-container">
+    <div class="main-container">
         <ul>
             <li>
                 <svg
@@ -22,7 +22,7 @@ const emailAction = btoa('mailto:job@madpo.me');
                         d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1 0.9 2 2 2h16c1.1 0 2-0.9 2-2V6c0-1.1-0.9-2-2-2zm0 2-8 5-8-5h16zm-8 7L4 8v10h16V8l-8 5z"
                     ></path>
                 </svg>
-                <a href={"javascript:window.location.href=atob('"+emailAction+"')"} aria-label="Send email to job@madpo.me">Contact by email</a>
+                <a href={"javascript:window.location.href=atob('"+emailAction+"')"} aria-label="Написать на job@madpo.me">Написать мне</a>
             </li>
             <li>
                 <svg
@@ -64,22 +64,16 @@ const emailAction = btoa('mailto:job@madpo.me');
                 >
             </li>
         </ul>
-        <footer class="note-foooter">
-            <ul>
-                <li><a href="/contact">About</a></li>
-                <li><a href="/notes">Notes</a></li>
-            </ul>
-        </footer>
-    </main>
+    </div>
 </BaseLayout>
 
 <style lang="postcss">
   .main-container {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top:25%;
     padding: 1.5rem;
 
     h1 {
@@ -112,36 +106,6 @@ const emailAction = btoa('mailto:job@madpo.me');
           }
         }
       }
-    }
-
-    .note-foooter {
-        border-top: 2px solid oklch(0.7 0.0017 145.56);
-        padding-top: 1rem;
-        margin-top: 2rem;
-        text-align: center;
-        color: oklch(0.7 0.0017 145.56);
-        font-size: 0.8rem;
-        position: absolute;
-        bottom: 0;
-        min-width: 100vw;
-
-        li, ul, p {
-            padding: 0;
-            list-style: none;
-            display: inline-block;
-        }
-
-        a {
-            text-decoration: underline;
-            text-decoration-color: oklch(0.8506 0.1723 92.22);
-            color: oklch(0.9239 0.0017 145.56);
-            margin: 0 0.5rem;
-
-            &:hover {
-                text-decoration: underline;
-                color: oklch(0.8506 0.1723 92.22);
-            }
-        }
     }
   }
 </style>

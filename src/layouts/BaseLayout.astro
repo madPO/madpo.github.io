@@ -52,12 +52,58 @@ const sitePath = Astro.site;
     </head>
 
     <body class="body-container">
-        <slot />
+        <main class="main-container">
+            <slot />
+        </main>
+        <footer class="footer-container">
+            <ul>
+                <li><a href="/contact">Контакты</a></li>
+                <li><a href="/notes">Заметки</a></li>
+            </ul>
+            <p>©{new Date().getFullYear()} Семён Зорьки. Контент: <a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="license noopener" target="_blank">CC BY‑NC 4.0.</a></p>
+        </footer>
     </body>
 </html>
 
 <style lang="postcss">
     .body-container {
         background-color: oklch(0.0672 0 0);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .main-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer-container {
+        border-top: 2px solid oklch(0.7 0.0017 145.56);
+        padding-top: 1rem;
+        margin-top: 2rem;
+        text-align: center;
+        color: oklch(0.7 0.0017 145.56);
+        font-size: 0.8rem;
+        height: auto;
+
+        li, ul, p {
+            padding: 0;
+            list-style: none;
+            display: inline-block;
+        }
+
+        a {
+            text-decoration: underline;
+            text-decoration-color: oklch(0.8506 0.1723 92.22);
+            color: oklch(0.9239 0.0017 145.56);
+            margin: 0 0.5rem;
+
+            &:hover {
+                text-decoration: underline;
+                color: oklch(0.8506 0.1723 92.22);
+            }
+        }
     }
 </style>

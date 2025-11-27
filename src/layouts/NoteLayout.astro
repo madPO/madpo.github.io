@@ -88,42 +88,9 @@ const currentYear = new Date().getFullYear();
             margin: 0.5rem;
         }
     }
-
-    .note-foooter {
-        border-top: 2px solid oklch(0.7 0.0017 145.56);
-        padding-top: 1rem;
-        margin-top: 2rem;
-        text-align: center;
-        color: oklch(0.7 0.0017 145.56);
-        font-size: 0.8rem;
-
-        li, ul, p {
-            list-style: none;
-            display: inline-block;
-        }
-
-        a {
-            text-decoration: underline;
-            text-decoration-color: oklch(0.8506 0.1723 92.22);
-            color: oklch(0.9239 0.0017 145.56);
-            margin: 0 0.5rem;
-
-            &:hover {
-                text-decoration: underline;
-                color: oklch(0.8506 0.1723 92.22);
-            }
-        }
-    }
 </style>
 <BaseLayout title={title} description={description} tags={tags} canonical={"notes/" + canonical}>
-    <main class="note-layout">
+    <div class="note-layout">
         <slot />
-    </main>
-    <footer class="note-foooter">
-        <ul>
-            <li><a href="/contact">About</a></li>
-            <li><a href="/notes">Notes</a></li>
-        </ul>
-        <p>©{currentYear} Семён Зорькин</p>
-    </footer>
+    </div>
 </BaseLayout>

@@ -5,48 +5,31 @@ import avatar from "../../public/avatars/avatar.png";
 ---
 
 <BaseLayout title="Семён Зорькин" canonical="">
-    <main class="main-container">
-        <div class="image-text-container">
-            <Picture
-                class="avatar-image"
-                src={avatar}
-                alt="Зорькин Семён"
-                formats={["webp", "png", "jpeg"]}
-                fetchpriority="high"
-                loading="eager"
-                width={356}
-                height={520}
-                layout="constrained"
-                decoding="async"
-                role="img"
-                aria-label="Портрет Семён Зорькин"
-            />
-            <div class="text-container">
-                <h1 class="name-text">Семён Зорькин</h1>
-            </div>
+    <div class="image-text-container">
+        <Picture
+            class="avatar-image"
+            src={avatar}
+            alt="Зорькин Семён"
+            formats={["webp", "png", "jpeg"]}
+            fetchpriority="high"
+            loading="eager"
+            width={356}
+            height={520}
+            layout="constrained"
+            decoding="async"
+            role="img"
+            aria-label="Портрет Семён Зорькин"
+        />
+        <div class="text-container">
+            <h1 class="name-text">Семён Зорькин</h1>
         </div>
-        <footer class="note-foooter">
-            <ul>
-                <li><a href="/contact">About</a></li>
-                <li><a href="/notes">Notes</a></li>
-            </ul>
-        </footer>
-    </main>
+    </div>
 </BaseLayout>
 
 <style lang="postcss">
-  .main-container {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
-
-    @media (min-width: 1024px) {
-      padding: 0;
-    }
-
     .image-text-container {
+      align-self: center;
+      margin-top: 15%;
       display: flex;
       gap: 0.5rem;
       flex-direction: column;
@@ -67,35 +50,4 @@ import avatar from "../../public/avatars/avatar.png";
         }
       }
     }
-
-  .note-foooter {
-      border-top: 2px solid oklch(0.7 0.0017 145.56);
-      padding-top: 1rem;
-      margin-top: 2rem;
-      text-align: center;
-      color: oklch(0.7 0.0017 145.56);
-      font-size: 0.8rem;
-      position: absolute;
-      bottom: 0;
-      min-width: 100vw;
-
-      li, ul, p {
-          padding: 0;
-          list-style: none;
-          display: inline-block;
-      }
-
-      a {
-          text-decoration: underline;
-          text-decoration-color: oklch(0.8506 0.1723 92.22);
-          color: oklch(0.9239 0.0017 145.56);
-          margin: 0 0.5rem;
-
-          &:hover {
-              text-decoration: underline;
-              color: oklch(0.8506 0.1723 92.22);
-          }
-      }
-  }
-  }
 </style>
