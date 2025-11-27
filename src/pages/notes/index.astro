@@ -7,12 +7,16 @@ const notes = (await getCollection("notes")).sort((a, b) => {
 });
 ---
 
-<BaseLayout title="Заметки" tags="список, заметок">
+<BaseLayout title="Заметки" tags="список, заметок" canonical="notes">
     <div class="notes-container">
         {
             notes.map((note) => (
                 <div class="note-item">
-                    <a href={"/notes/" + note.id} class="focus:outline-hidden">
+                    <a
+                        href={"/notes/" + note.id}
+                        class="focus:outline-hidden"
+                        aria-label={`Прочти заметку под названием - ${note.data.title}`}
+                    >
                         <div class="mt-8">
                             <h3 class="note-title">
                                 <span

@@ -1,5 +1,5 @@
 ---
-const { title, description, tags } = Astro.props;
+const { title, description, tags, canonical } = Astro.props;
 const sitePath = Astro.site;
 ---
 
@@ -32,6 +32,7 @@ const sitePath = Astro.site;
             type="font/woff2"
             crossorigin="anonymous"
         />
+        <link rel="canonical" href={sitePath + canonical} />
         <title>{title} | {sitePath}</title>
         <style is:global lang="postcss">
             @import-sanitize;
