@@ -32,6 +32,21 @@ const sitePath = Astro.site;
             type="font/woff2"
             crossorigin="anonymous"
         />
+        <link
+            rel="icon"
+            type="image/png"
+            href="icons/favicon-96x96.png"
+            sizes="96x96"
+        />
+        <link rel="icon" type="image/svg+xml" href="icons/favicon.svg" />
+        <link rel="shortcut icon" href="icons/favicon.ico" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="icons/apple-touch-icon.png"
+        />
+        <meta name="apple-mobile-web-app-title" content="madpo.me" />
+        <link rel="manifest" href="site.webmanifest" />
         <link rel="canonical" href={sitePath + canonical} />
         <title>{title} | {sitePath}</title>
         <style is:global lang="postcss">
@@ -64,7 +79,8 @@ const sitePath = Astro.site;
                 ©{new Date().getFullYear()} Семён Зорькин. Контент: <a
                     href="https://creativecommons.org/licenses/by-nc/4.0/"
                     rel="license noopener"
-                    target="_blank">CC BY‑NC 4.0.</a>
+                    target="_blank">CC BY‑NC 4.0.</a
+                >
             </p>
         </footer>
     </body>
