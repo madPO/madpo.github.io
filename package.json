@@ -11,13 +11,14 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.6.0",
-    "astro": "^5.16.0",
+    "@astrojs/sitemap": "^3.7.0",
+    "astro": "^5.17.1",
     "sharp": "^0.33.5"
   },
   "devDependencies": {
+    "baseline-browser-mapping": "^2.9.19",
     "postcss-nested": "^7.0.2",
     "postcss-normalize": "^13.0.1",
-    "postcss-preset-env": "^10.4.0"
+    "postcss-preset-env": "^10.6.1"
   }
 }
