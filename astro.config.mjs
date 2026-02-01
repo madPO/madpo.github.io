@@ -4,7 +4,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://madpo.github.io/",
+  site: "https://madpo.me/",
 
   vite: {
     plugins: [],
